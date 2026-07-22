@@ -133,7 +133,7 @@ All results land in `results/`: `*.json` reports, `metrics.jsonl` (raw event
 log), `dashboard.html`.
 
 ### Results
-![Load test dashboard preview](section3_quantization/results/Section3.png)
+![Load test dashboard preview](./results/Section3.png)
 ---
 
 ## Project structure
