@@ -51,7 +51,7 @@ own folder with its own `README.md` (setup/run instructions), `NOTES.md`
 
 ```bash
 # Section 1 — LiveKit voice agent (mock STT/TTS, real Groq/Cerebras LLM)
-cd section1_livekit_agents && pip install -r requirements.txt && pytest tests/ -v && python src/run_demo.py
+cd section-1-livekit-agents && pip install -r requirements.txt && pytest tests/ -v && python src/run_demo.py
 
 # Section 2 — LangChain/LangGraph RAG over 3 PDFs (Gemini free tier)
 cd section2_langchain_rag && pip install -r requirements.txt && python scripts/ingest.py && python scripts/ask.py "What is VAERS?"
