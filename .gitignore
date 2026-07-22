@@ -1,9 +1,6 @@
 # --- Environment files ---
 *.env
 
-# --- Ignore init files ---
-**/__init__.py
-
 # --- Python cache & compiled files ---
 __pycache__/
 *.pyc
@@ -11,7 +8,6 @@ __pycache__/
 *.pyd
 
 # --- Test artifacts ---
-*.ini
 .pytest_cache/
 *.pytest-*
 .pytest/
