@@ -1,0 +1,20 @@
+# --- Install PyTorch separately FIRST (native/non-Docker runs only) ---
+# See README section "1. Install PyTorch". Not pinned here: correct build
+# depends on your CUDA version / GPU generation. The Dockerfile installs its
+# own CPU-only torch build directly, so this note only applies if you're
+# running the API natively (outside Docker) to use your GPU.
+
+# Core utilities
+psutil
+pytest
+huggingface_hub
+httpx
+
+# ML stack
+transformers
+accelerate
+bitsandbytes
+
+# API
+fastapi
+uvicorn[standard]

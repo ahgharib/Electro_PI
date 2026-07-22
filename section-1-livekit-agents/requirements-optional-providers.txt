@@ -1,0 +1,12 @@
+# Optional: real STT/TTS providers for Task 1.2 (swap a pipeline component).
+# Not needed to run anything in the base README -- only install this if
+# you're setting STT_PROVIDER=deepgram and/or TTS_PROVIDER=cartesia in .env.
+#
+#   pip install -r requirements-optional-providers.txt
+#
+# Free trial keys, no credit card:
+#   Deepgram: https://console.deepgram.com
+#   Cartesia: https://play.cartesia.ai
+
+livekit-plugins-deepgram>=1.6.6,<2.0.0
+livekit-plugins-cartesia>=1.6.6,<2.0.0

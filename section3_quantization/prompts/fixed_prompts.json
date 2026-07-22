@@ -1,0 +1,7 @@
+[
+  "Explain what quantization means for a large language model, in 3 sentences.",
+  "Write a Python function that returns the nth Fibonacci number using memoization.",
+  "A store sells apples in bags of 6 and oranges in bags of 4. I need exactly 24 apples and 20 oranges. How many bags of each do I need? Show your reasoning.",
+  "Summarize the following in one sentence: 'The Transformer architecture, introduced in 2017, replaced recurrence with self-attention, allowing models to process sequences in parallel and scale far more efficiently than RNNs.'",
+  "Write a two-line rhyming couplet about debugging code at 2am."
+]

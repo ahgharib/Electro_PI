@@ -1,0 +1,29 @@
+# --- Environment files ---
+*.env
+
+# --- Ignore init files ---
+**/__init__.py
+
+# --- Python cache & compiled files ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Test artifacts ---
+*.ini
+.pytest_cache/
+*.pytest-*
+.pytest/
+
+
+
+# --- OS / Editor junk ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Ignore virtual environments ---
+venv/
+.env/

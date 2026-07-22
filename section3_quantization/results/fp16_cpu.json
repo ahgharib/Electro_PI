@@ -1,0 +1,59 @@
+{
+  "precision_label": "fp16",
+  "resolved_model_id": "Qwen/Qwen2.5-3B-Instruct",
+  "device": "cpu",
+  "auto_fallback_triggered": false,
+  "fallback_reason": null,
+  "n_prompts": 5,
+  "n_failed": 0,
+  "avg_tokens_per_second": 1.44,
+  "vram_peak_gb": 0.0,
+  "ram_used_gb": 11.532,
+  "results": [
+    {
+      "prompt": "Explain what quantization means for a large language model, in 3 sentences.",
+      "output": "Quantization is the process of reducing the precision of the numbers used to represent the weights and activations in a large language model, typically from floating-point (like ",
+      "generation_time_s": 43.5734361000068,
+      "output_tokens": 32,
+      "precision_label": "fp16",
+      "error": null,
+      "error_traceback": null
+    },
+    {
+      "prompt": "Write a Python function that returns the nth Fibonacci number using memoization.",
+      "output": "Certainly! To compute the nth Fibonacci number efficiently using memoization, we can store previously computed values in a dictionary to avoid redundant calculations. Here's how you can",
+      "generation_time_s": 39.77774389999104,
+      "output_tokens": 32,
+      "precision_label": "fp16",
+      "error": null,
+      "error_traceback": null
+    },
+    {
+      "prompt": "A store sells apples in bags of 6 and oranges in bags of 4. I need exactly 24 apples and 20 oranges. How many bags of each do I need? Show your reasoning.",
+      "output": "To determine how many bags of apples and oranges you need to buy to get exactly 24 apples and 20 oranges, we can set up the problem",
+      "generation_time_s": 48.37915990001056,
+      "output_tokens": 32,
+      "precision_label": "fp16",
+      "error": null,
+      "error_traceback": null
+    },
+    {
+      "prompt": "Summarize the following in one sentence: 'The Transformer architecture, introduced in 2017, replaced recurrence with self-attention, allowing models to process sequences in parallel and scale far more efficiently than RNNs.'",
+      "output": "The Transformer architecture, introduced in 2017, replaced recurrence with self-attention to enable parallel sequence processing and significantly improve efficiency compared to RNNs",
+      "generation_time_s": 13.549636300012935,
+      "output_tokens": 32,
+      "precision_label": "fp16",
+      "error": null,
+      "error_traceback": null
+    },
+    {
+      "prompt": "Write a two-line rhyming couplet about debugging code at 2am.",
+      "output": "At midnight, the debugger's light,\nFixes bugs that won't play at night.",
+      "generation_time_s": 7.222598099993775,
+      "output_tokens": 19,
+      "precision_label": "fp16",
+      "error": null,
+      "error_traceback": null
+    }
+  ]
+}

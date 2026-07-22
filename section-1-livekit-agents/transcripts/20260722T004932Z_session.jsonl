@@ -1,0 +1,19 @@
+{"ts": 1784681372.534, "level": "INFO", "logger": "voice_agent.config", "event": "llm_provider_configured", "provider": "groq", "model": "llama-3.3-70b-versatile"}
+{"ts": 1784681372.539, "level": "INFO", "logger": "voice_agent.config", "event": "llm_provider_configured", "provider": "cerebras", "model": "gpt-oss-120b"}
+{"ts": 1784681372.539, "level": "INFO", "logger": "voice_agent.config", "event": "llm_fallback_chain_built", "providers": 2}
+{"ts": 1784681372.586, "level": "INFO", "logger": "voice_agent", "event": "session_started", "interactive": true}
+{"ts": 1784681374.506, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Customer", "text": "hi"}
+{"ts": 1784681375.239, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784681375.405, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Sam (agent)", "text": "Hello, welcome to Foodie. My name is Sam, and I'll be happy to help you with any questions or issues you have with your order. What can I do for you today? Do you have an order number you'd like to check on or perhaps you need to cancel an order?"}
+{"ts": 1784681383.538, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Customer", "text": "check order 50"}
+{"ts": 1784681383.837, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784681383.846, "level": "INFO", "logger": "voice_agent.persona", "event": "tool_get_order_status", "order_id": "50", "found": false}
+{"ts": 1784681383.846, "level": "WARNING", "logger": "livekit.agents", "event": "ToolError while executing tool: No order found with ID '50'. Ask the customer to double-check the order number -- it's in their confirmation email or the app's order history.", "function": "get_order_status", "speech_id": "speech_8d4ae830fe5e"}
+{"ts": 1784681384.111, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784681384.296, "level": "INFO", "logger": "voice_agent", "event": "tool_call_invoked", "tool": "get_order_status", "arguments": "{\"order_id\": \"50\"}"}
+{"ts": 1784681384.296, "level": "INFO", "logger": "voice_agent", "event": "tool_call_result", "tool": "get_order_status", "is_error": true, "output": "No order found with ID '50'. Ask the customer to double-check the order number -- it's in their confirmation email or the app's order history."}
+{"ts": 1784681384.296, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Sam (agent)", "text": "I didn't find an order with the number 50. Can you please double-check your order number? It should be in your confirmation email or in the app's order history. If you're still having trouble, I'd be happy to try and help you find it."}
+{"ts": 1784681403.677, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Customer", "text": "delete order 50"}
+{"ts": 1784681403.935, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784681404.12, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Sam (agent)", "text": "I already checked and couldn't find an order with the number 50. Since it doesn't exist, I won't be able to cancel it. If you can provide me with the correct order number, I'd be happy to try and assist you with cancelling it."}
+{"ts": 1784681407.306, "level": "INFO", "logger": "voice_agent", "event": "session_ended"}

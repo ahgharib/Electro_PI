@@ -1,0 +1,59 @@
+{
+  "precision_label": "4bit",
+  "resolved_model_id": "Qwen/Qwen2.5-3B-Instruct",
+  "device": "cuda",
+  "auto_fallback_triggered": false,
+  "fallback_reason": null,
+  "n_prompts": 5,
+  "n_failed": 0,
+  "avg_tokens_per_second": 14.17,
+  "vram_peak_gb": 2.002,
+  "ram_used_gb": 1.19,
+  "results": [
+    {
+      "prompt": "Explain what quantization means for a large language model, in 3 sentences.",
+      "output": "Quantization is the process of reducing the precision of the weights and activations in a large language model to save memory and improve inference speed. By using fewer bits to represent these values, such as from 32-bit floating point to 8-bit or lower, the model's size decreases significantly while maintaining performance. This technique is particularly useful for deploying models on devices with limited computational resources, making them more efficient and faster to run.",
+      "generation_time_s": 10.2597677000158,
+      "output_tokens": 87,
+      "precision_label": "4bit",
+      "error": null,
+      "error_traceback": null
+    },
+    {
+      "prompt": "Write a Python function that returns the nth Fibonacci number using memoization.",
+      "output": "Certainly! To create a Python function that returns the nth Fibonacci number using memoization, we can use a dictionary to store previously computed values. This will help us avoid redundant calculations and make the function more efficient.\n\nHere's how you can implement it:\n\n```python\ndef fibonacci(n, memo={}):\n    # Base cases\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    \n    # Check if the value is already computed\n    if n in memo:\n        return memo[n]\n    \n    # Compute the value and store it in the memo dictionary\n    memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo)\n    \n    return memo[n]\n\n# Example usage:\nn = 10\nprint(f\"The {n}th Fibonacci number is: {fibonacci(n)}\")\n```\n\n### Explanation:\n- The `memo` dictionary is used to store previously computed Fibonacci numbers.\n-",
+      "generation_time_s": 12.327021400007652,
+      "output_tokens": 200,
+      "precision_label": "4bit",
+      "error": null,
+      "error_traceback": null
+    },
+    {
+      "prompt": "A store sells apples in bags of 6 and oranges in bags of 4. I need exactly 24 apples and 20 oranges. How many bags of each do I need? Show your reasoning.",
+      "output": "To determine the number of bags needed for 24 apples and \u91ce20 oranges, we can use the given information about the bag sizes.\n\nFor apples:\n- Each bag contains 6 apples.\n- We need a total of 24 apples.\n\nTo find out how many bags of apples are needed, we divide the total number of apples by the number of apples per bag:\n\n\\[ \\text{Number of apple bags} = \\frac{\\text{Total number of apples}}{\\text{Apples per bag}} = \\frac{24}{6} = 4 \\]\n\nSo, we need 4 bags of apples.\n\nFor oranges:\n- Each bag contains 4 oranges.\n- We need a total of 20 oranges.\n\nTo find out how many bags of oranges are needed, we divide the total number of oranges by the number of oranges per bag:\n\n\\[ \\text{Number of orange bags} = \\frac{\\text{Total number of oranges}}{\\text",
+      "generation_time_s": 12.258143399987603,
+      "output_tokens": 200,
+      "precision_label": "4bit",
+      "error": null,
+      "error_traceback": null
+    },
+    {
+      "prompt": "Summarize the following in one sentence: 'The Transformer architecture, introduced in 2017, replaced recurrence with self-attention, allowing models to process sequences in parallel and scale far more efficiently than RNNs.'",
+      "output": "The Transformer architecture, introduced in 2017, replaced recurrence with self-attention, enabling parallel processing of sequences and significantly improving efficiency compared to RNNs.",
+      "generation_time_s": 2.40588750000461,
+      "output_tokens": 35,
+      "precision_label": "4bit",
+      "error": null,
+      "error_traceback": null
+    },
+    {
+      "prompt": "Write a two-line rhyming couplet about debugging code at 2am.",
+      "output": "At midnight, the debugger shines,\nFixing bugs that won't go on their own.",
+      "generation_time_s": 1.2444647999946028,
+      "output_tokens": 19,
+      "precision_label": "4bit",
+      "error": null,
+      "error_traceback": null
+    }
+  ]
+}

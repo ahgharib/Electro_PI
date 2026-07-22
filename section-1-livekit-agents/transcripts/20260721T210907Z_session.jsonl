@@ -1,0 +1,1 @@
+{"ts": 1784668147.127, "level": "INFO", "logger": "voice_agent.config", "event": "llm_provider_configured", "provider": "groq", "model": "llama-3.3-70b-versatile"}

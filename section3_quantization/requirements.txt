@@ -1,0 +1,14 @@
+# --- Install PyTorch separately FIRST -- see README section "1. Install PyTorch" ---
+# torch is intentionally NOT pinned here: the correct build depends on your CUDA
+# version / GPU generation. Installing it via this file risks grabbing a CPU-only
+# or incompatible build. Run the README's Step 1 command, THEN this file.
+
+# Core utilities
+psutil
+pytest
+huggingface_hub
+
+# ML stack (installed after torch)
+transformers
+accelerate
+bitsandbytes

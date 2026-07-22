@@ -1,0 +1,38 @@
+{"ts": 1784677074.305, "level": "INFO", "logger": "voice_agent.config", "event": "llm_provider_configured", "provider": "groq", "model": "llama-3.3-70b-versatile"}
+{"ts": 1784677074.31, "level": "INFO", "logger": "voice_agent.config", "event": "llm_provider_configured", "provider": "cerebras", "model": "gpt-oss-120b"}
+{"ts": 1784677074.31, "level": "INFO", "logger": "voice_agent.config", "event": "llm_fallback_chain_built", "providers": 2}
+{"ts": 1784677074.364, "level": "INFO", "logger": "voice_agent", "event": "session_started", "interactive": false}
+{"ts": 1784677074.364, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Customer", "text": "Hi, I'd like to check on an order."}
+{"ts": 1784677075.034, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784677075.131, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Sam (agent)", "text": "To check on your order, I'll need the order ID. Can you please give me the order ID for the order you'd like to check?"}
+{"ts": 1784677075.131, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Customer", "text": "It's order A100 -- what's the status?"}
+{"ts": 1784677075.443, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784677075.443, "level": "INFO", "logger": "voice_agent.persona", "event": "tool_get_order_status", "order_id": "A100", "found": true}
+{"ts": 1784677075.799, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784677075.987, "level": "INFO", "logger": "voice_agent", "event": "tool_call_invoked", "tool": "get_order_status", "arguments": "{\"order_id\": \"A100\"}"}
+{"ts": 1784677075.987, "level": "INFO", "logger": "voice_agent", "event": "tool_call_result", "tool": "get_order_status", "is_error": false, "output": "Order A100 is currently 'preparing', ETA 25 minutes."}
+{"ts": 1784677075.988, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Sam (agent)", "text": "Your order A100 is currently being prepared and the estimated time of arrival is twenty-five minutes. If you'd like to cancel the order, I can try to do that for you, or we can wait for further updates on the status. What would you like to do?"}
+{"ts": 1784677075.988, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Customer", "text": "Actually can you cancel order A101 for me?"}
+{"ts": 1784677076.306, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784677076.307, "level": "INFO", "logger": "voice_agent.persona", "event": "tool_get_order_status", "order_id": "A101", "found": true}
+{"ts": 1784677076.665, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784677076.668, "level": "INFO", "logger": "voice_agent.persona", "event": "tool_cancel_order", "order_id": "A101", "reason": "customer request", "found": true}
+{"ts": 1784677076.668, "level": "WARNING", "logger": "livekit.agents", "event": "ToolError while executing tool: Order A101 can no longer be cancelled (current status: 'out_for_delivery'). It's too late to stop this one.", "function": "cancel_order", "speech_id": "speech_1524b095cd43"}
+{"ts": 1784677076.93, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784677077.127, "level": "INFO", "logger": "voice_agent", "event": "tool_call_invoked", "tool": "get_order_status", "arguments": "{\"order_id\": \"A101\"}"}
+{"ts": 1784677077.127, "level": "INFO", "logger": "voice_agent", "event": "tool_call_result", "tool": "get_order_status", "is_error": false, "output": "Order A101 is currently 'out_for_delivery', ETA 8 minutes."}
+{"ts": 1784677077.127, "level": "INFO", "logger": "voice_agent", "event": "tool_call_invoked", "tool": "cancel_order", "arguments": "{\"order_id\": \"A101\", \"reason\": \"customer request\"}"}
+{"ts": 1784677077.127, "level": "INFO", "logger": "voice_agent", "event": "tool_call_result", "tool": "cancel_order", "is_error": true, "output": "Order A101 can no longer be cancelled (current status: 'out_for_delivery'). It's too late to stop this one."}
+{"ts": 1784677077.129, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Sam (agent)", "text": "I've tried to cancel order A101 for you, but unfortunately, it's already out for delivery, so it can't be cancelled anymore. If you'd like to reach out to the driver or have any other questions, I can try to help with that."}
+{"ts": 1784677077.129, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Customer", "text": "Okay, then please cancel order A100 instead."}
+{"ts": 1784677077.511, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784677077.52, "level": "INFO", "logger": "voice_agent.persona", "event": "tool_cancel_order", "order_id": "A100", "reason": "customer request", "found": true}
+{"ts": 1784677077.52, "level": "INFO", "logger": "voice_agent.persona", "event": "order_cancelled", "order_id": "A100", "reason": "customer request"}
+{"ts": 1784677077.812, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784677077.857, "level": "INFO", "logger": "voice_agent", "event": "tool_call_invoked", "tool": "cancel_order", "arguments": "{\"order_id\": \"A100\", \"reason\": \"customer request\"}"}
+{"ts": 1784677077.857, "level": "INFO", "logger": "voice_agent", "event": "tool_call_result", "tool": "cancel_order", "is_error": false, "output": "Order A100 has been cancelled."}
+{"ts": 1784677077.857, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Sam (agent)", "text": "Order A100 has been cancelled. If you need any further assistance or have any other questions, feel free to ask."}
+{"ts": 1784677077.857, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Customer", "text": "That's all, thanks!"}
+{"ts": 1784677078.131, "level": "INFO", "logger": "httpx", "event": "HTTP Request: POST https://api.groq.com/openai/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"ts": 1784677078.22, "level": "INFO", "logger": "voice_agent", "event": "transcript_line", "speaker": "Sam (agent)", "text": "You're welcome. It was a pleasure helping you with your orders. Have a great day and enjoy your next meal with Foodie."}
+{"ts": 1784677078.221, "level": "INFO", "logger": "voice_agent", "event": "session_ended"}

@@ -1,0 +1,12 @@
+# Core LiveKit Agents framework (verified against 1.6.6 while building this).
+livekit-agents>=1.6.6,<2.0.0
+
+# OpenAI-compatible LLM plugin. Used to talk to Groq / Cerebras, both of which
+# expose OpenAI-compatible chat-completions endpoints with real tool-calling
+# support, so we don't need separate plugins per provider.
+livekit-plugins-openai>=1.6.6,<2.0.0
+
+# Dev / test tooling
+pytest>=8.0.0
+pytest-asyncio>=0.24.0
+python-dotenv>=1.0.1
