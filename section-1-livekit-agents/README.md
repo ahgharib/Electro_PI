@@ -68,6 +68,43 @@ No code changes needed -- see `src/providers.py` and `NOTES.md` section 3.
 
 ## What's in here
 
+---
+```mermaid
+flowchart TD
+    User[("Scripted/Interactive User Input (text)")] --> RunDemo["run_demo.py (run_conversation)"]
+    RunDemo --> AgentSession["AgentSession (livekit.agents)"]
+    AgentSession --> SupportAgent["SupportAgent (extends Agent)"]
+    AgentSession --> LLM["LLM Provider"]
+    AgentSession --> STT["STT Provider"]
+    AgentSession --> TTS["TTS Provider"]
+
+    LLM --> Config["config.py (build_llm)"]
+    Config --> Fallback["FallbackAdapter"]
+    Fallback --> Groq["Groq (primary)"]
+    Fallback --> Cerebras["Cerebras (fallback)"]
+
+    STT --> ProvidersSTT["providers.py (build_stt)"]
+    ProvidersSTT --> MockSTT["MockSTT (default)"]
+    ProvidersSTT --> RealSTT["Real STT (e.g. Deepgram)"]
+
+    TTS --> ProvidersTTS["providers.py (build_tts)"]
+    ProvidersTTS --> MockTTS["MockTTS (default)"]
+    ProvidersTTS --> RealTTS["Real TTS (e.g. Cartesia)"]
+
+    SupportAgent --> Tools["Tools:
+    - get_order_status
+    - cancel_order"]
+    SupportAgent --> TTSNode["tts_node sanitizer"]
+    TTSNode --> Sanitizer["speech_sanitizer.py
+    (strips emoji/markdown)"]
+    Tools --> OrderData["mock_orders_data.py
+    (Order data seed)"]
+
+    RunDemo --> Logging["logging_config.py
+    (structured JSON)"]
+    Logging --> Transcript["Transcript file (.jsonl)"]
+```
+---
 ```
 src/
   config.py              LLM provider setup: Groq primary, Cerebras fallback
