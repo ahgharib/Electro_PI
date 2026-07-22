@@ -62,7 +62,104 @@ src/
                    (retry/circuit-breaker/fallback), monitoring, the
                    RAGPipeline entrypoint
 ```
+---
+```mermaid
+graph TD;
+    __start__ --> retrieve;
+    retrieve --> gate;
+    gate -->|pass| generate;
+    gate -->|else| short_circuit;
+    generate --> __end__;
+    short_circuit --> __end__;
+```
+---
+---
 
+```mermaid
+flowchart TB
+    subgraph External["External"]
+        User([User])
+        Docs[(Docs/ PDFs)]
+    end
+
+    subgraph Pipeline["RAGPipeline (entrypoint)"]
+        direction TB
+        Ingest[ingest]
+        Answer[answer]
+    end
+
+    subgraph Ports["Ports (interfaces)"]
+        LoaderPort[DocumentLoader]
+        ChunkerPort[Chunker]
+        EmbedderPort[Embedder]
+        VStorePort[VectorStore]
+        GenPort[Generator]
+    end
+
+    subgraph Adapters["Adapters (concrete implementations)"]
+        LoaderRegistry["LoaderRegistry<br>MarkdownLoader / PdfLoader"]
+        StructChunker["StructureAwareChunker<br>recursive, header-aware"]
+        GeminiEmbed[GeminiEmbedder]
+        OpenAIEmbed[OpenAIEmbedder]
+        FakeEmbed["FakeEmbedder (tests)"]
+        ChromaStore[ChromaVectorStore]
+        GeminiGen[GeminiGenerator]
+        OpenAIGen[OpenAIGenerator]
+        FakeGen["FakeGenerator (tests)"]
+    end
+
+    subgraph Reliability["Reliability & Helpers"]
+        ResilientEmbed["ResilientEmbedder<br>retry + circuit breaker + fallback"]
+        ResilientGen["ResilientGenerator"]
+        RateLimiter["RateLimiter<br>pacing for embedding"]
+        Config["Config<br>.env driven"]
+        Monitor["Monitor<br>JSONL log + console"]
+    end
+
+    subgraph LangGraph["LangGraph (graph execution)"]
+        Graph[build_graph]
+        RetrieveNode[retrieve]
+        GateNode[gate]
+        GenerateNode[generate]
+        ShortCircuit[short_circuit]
+    end
+
+    %% Data flows - Ingestion
+    User -->|"ingest()"| Ingest
+    Docs --> LoaderRegistry
+    LoaderRegistry -->|Document| StructChunker
+    StructChunker -->|Chunks| ResilientEmbed
+    ResilientEmbed -->|embeddings| ChromaStore
+
+    %% Data flows - Query
+    User -->|"answer()"| Answer
+    Answer --> Graph
+    Graph --> RetrieveNode
+    RetrieveNode -->|"uses"| ResilientEmbed
+    RetrieveNode -->|"uses"| ChromaStore
+    RetrieveNode -->|"passes retrieved chunks"| GateNode
+    GateNode -->|"if PASS"| GenerateNode
+    GateNode -->|else| ShortCircuit
+    GenerateNode -->|"uses"| ResilientGen
+    GenerateNode -->|produces| Monitor
+    ShortCircuit -->|"no LLM"| Monitor
+    Monitor -->|log| LogFile[(logs/rag_metrics.jsonl)]
+    Monitor -->|console| Console([Console output])
+
+    %% Dependencies
+    ResilientEmbed -.->|"wraps"| GeminiEmbed
+    ResilientEmbed -.->|"wraps"| OpenAIEmbed
+    ResilientEmbed -.->|"wraps"| FakeEmbed
+    ResilientGen -.->|"wraps"| GeminiGen
+    ResilientGen -.->|"wraps"| OpenAIGen
+    ResilientGen -.->|"wraps"| FakeGen
+
+    Config --> ResilientEmbed
+    Config --> ResilientGen
+    Config --> Graph
+    Config --> Monitor
+```
+---
 **A host application only ever needs to import `RAGPipeline`:**
 
 ```python
