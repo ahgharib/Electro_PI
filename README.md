@@ -41,8 +41,8 @@ own folder with its own `README.md` (setup/run instructions), `NOTES.md`
 | Section | Task | README (setup/run) | Write-up (NOTES.md) | Supporting evidence |
 |---|---|---|---|---|
 | 1 — LiveKit Agents | 1.1 (required) + 1.2 (bonus) | [`section1_livekit_agents/README.md`](section-1-livekit-agents/README.md) | [`section1_livekit_agents/NOTES.md`](section-1-livekit-agents/NOTES.md) | [`CONVERSATIONS.md`](section-1-livekit-agents/CONVERSATIONS.md) · [`SWAPPING_PROVIDERS.md`](section-1-livekit-agents/SWAPPING_PROVIDERS.md) · [`transcripts/README.md`](section-1-livekit-agents/transcripts/README.md) |
-| 2 — LangChain / RAG | 2.1 | [`section2_langchain_rag/README.md`](section2_langchain_rag/README.md) | `section2_langchain_rag/NOTES.md` | [`QUESTIONS_PDF_SET.md`](section2_langchain_rag/QUESTIONS_PDF_SET.md) |
-| 3 — Quantization | 3.1 | [`section3_quantization/README.md`](section3_quantization/README.md) | [`section3_quantization/NOTES.md`](section3_quantization/NOTES.md) | [`results/model_comparison.md`](section3_quantization/results/model_comparison.md) |
+| 2 — LangChain / RAG | 2.1 | [`section2_langchain_rag/README.md`](section2_langchain_rag/README.md) | `section2_langchain_rag/NOTES.md` [`section2_langchain_rag/NOTES.md`](section2_langchain_rag/NOTES.md)| [`QUESTIONS_PDF_SET.md`](section2_langchain_rag/QUESTIONS_PDF_SET.md) |
+| 3 — Quantization | 3.1 | [`section3_quantization/README.md`](section3_quantization/README.md) | [`section3_quantization/NOTES.md`](section3_quantization/NOTES.md) | [`results/model_comparison.md`](section3_quantization/model_comparison.md) |
 | 4 — Model Deployment | 4.1 | [`section4_deployment/README.md`](section4_deployment/README.md) | [`section4_deployment/NOTES.md`](section4_deployment/NOTES.md) | — |
 
 ---
