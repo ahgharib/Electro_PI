@@ -185,6 +185,11 @@ meaningful with enough VRAM/RAM headroom for concurrent forward passes).
 
 ---
 
+### Results
+![Load test dashboard preview](./results/Section4.png)
+---
+
+
 ## Project structure
 
 ```
